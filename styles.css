@@ -57,8 +57,12 @@ nav li {
     margin-right: 20px;
     /* Ajusta el espaciado entre los elementos de la lista */
 }
+nav li a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
 
-nav li:hover {
+nav li a:hover {
     color: var(--secondary-color);
     cursor: pointer;
     /* Ajusta el espaciado entre los elementos de la lista */
@@ -205,8 +209,17 @@ main {
     font-size: var(--font-title-h2);
     justify-content: center;
     text-align: center;
-    /* margin: 30px; */
     margin-bottom: 80px;
+}
+
+.title-section-subpage {
+    width: 100%;
+    display: flex;
+    font-size: var(--font-title-h2);
+    justify-content: center;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 50px;
 }
 
 
@@ -214,6 +227,18 @@ main {
 /* contenedor de las funciones */
 
 .container-functions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-flow: row;
+    justify-content: center;
+    align-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    gap: 30px;
+}
+
+.container-módulos-precios {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -350,6 +375,8 @@ footer {
     height: 50px;
     color: white;
     font-size: var(--font-text);
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .redes {
@@ -394,6 +421,12 @@ footer {
   transform: scale(1.1); /* Al hacer hover, la imagen se hace un poco más grande */
 }
 
+.container-subpages{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 
 @media (max-width: 768px) {
@@ -410,14 +443,11 @@ footer {
         margin-left: 0px;
     }
 
-
     .nav-bar ul {
         display: none;
     }
 
-
     main {
-
         width: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -426,15 +456,21 @@ footer {
         text-align: center;
     }
 
+    .title-section-subpage {
+        display: flex;
+        font-size: var(--font-title-h2);
+        justify-content: center;
+        text-align: center;
+    }
+    
+
     .content-main {
         margin: 0;
     }
 
-
     .img-main {
         display: none;
     }
-
 
     footer {
         display: flex;
@@ -446,7 +482,4 @@ footer {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-
-
-
 }
