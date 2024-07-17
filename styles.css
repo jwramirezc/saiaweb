@@ -11,6 +11,7 @@
     --font-nav: 1.4rem;
     --font-btn: 1.8rem;
     --font-icon-btn: 2rem;
+    --background-box-color:rgba(132, 204, 252, 0.2);
 }
 
 * {
@@ -282,7 +283,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin: 15px;
-    background-color: rgba(132, 204, 252, 0.2);
+    background-color: var(--background-box-color);
     padding: 20px;
     border-radius: 5px;
     width: 270px;
@@ -428,6 +429,32 @@ footer {
     justify-content: space-between;
 }
 
+.container-info-modulos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-info-modulos{
+    background-color: var(--background-box-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50rem;
+    height: 20rem;
+    border-radius: 10px;
+}
+
+.text-info-modulos p{
+font-size: var(--font-title-h3);
+color: var(--secondary-color);
+font-weight: bold;
+}
+
+
+
+
+
 
 @media (max-width: 768px) {
 
@@ -462,7 +489,6 @@ footer {
         justify-content: center;
         text-align: center;
     }
-    
 
     .content-main {
         margin: 0;
