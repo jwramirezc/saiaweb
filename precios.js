@@ -1,6 +1,19 @@
 
 // Creando los servicios
 
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    const elegirModulo = document.getElementById('box-function');
+    elegirModulo.addEventListener('mouseover',pasarMouse)
+});
+
+
+function pasarMouse(){
+    console.log('pasó el mouse por encima');
+}
+
+
 function ModulosSaia (nombreModulo, planModulo, valorModulo, alcancesModulo){
     this.nombreModulo = nombreModulo
     this.planModulo = planModulo

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Procesos</title>
+    <title>Precios</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,139 +12,119 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/61a9bf8976.js" crossorigin="anonymous"></script>
+    <script src="precios.js"></script>
 </head>
 
 <body>
-    <!-- header de la Web -->
 
 <div class="container-subpages">
+    <!-- header de la Web -->
+    <header>
+        <div class="logo">
+            <figure>
+                <img src="./img/logo-saia-estandar.png" alt="logo de SAIA Software">
+            </figure>
+        </div>
+        <nav class="nav-bar">
 
-    <!-- sección principal -->
-    <div >
-        <header>
-            <div class="logo">
-                <figure>
-                    <img src="./img/logo-saia-estandar.png" alt="logo de SAIA Software">
-                </figure>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li>Características</li>
+                <li>Precios</li>
+                <li>Blog</li>
+                <li>Soporte en Línea</li>
+            </ul>
+
+        </nav>
+        <div class="div-btn-third">
+            <button class="btn-third">Comunicarse con Ventas</button>
+        </div>
+    </header>
+
+    <h2 class="title-section-subpage">Precios</h2>
+
+    <!-- sección de los módulos -->
+    <section class="container-módulos-precios">
+
+        <!-- inicio de contenedor de módulos  -->
+        <div class="box-function" onmouseover="pasarMouse()">
+            <div class="ico-box-function">
+                <span style="font-size: 4rem">
+                    <i class="fa-solid fa-inbox"></i>
+                </span>
             </div>
-            <nav class="nav-bar">
-    
-                <ul>
-                    <li><a href="./index.html">Inicio</a></li>
-                    <li>Características</li>
-                    <li>Precios</li>
-                    <li>Blog</li>
-                    <li>Soporte en Línea</li>
-                </ul>
-    
-            </nav>
-            <div class="div-btn-third">
-                <button class="btn-third">Comunicarse con Ventas</button>
+            <div class="text-box-function">
+                <h3 class="title-box-function">Correspondencia</h3>
+                <p class="content-box-function">Gestiona, codifica consecutivamente, digitaliza y distribuye toda la
+                    correspondencia que entra, sale
+                    y circula.
+                </p>
             </div>
-        </header>
-
-        <h2 class="title-section-subpage">Precios</h2>
-    
-        <main>
-            <!-- sección de los módulos -->
-                <section class="container-módulos-precios">
-    
-                <!-- inicio de contenedor de módulos  -->
-                <div class="box-function">
-                    <div class="ico-box-function">
-                        <span style="font-size: 4rem">
-                            <i class="fa-solid fa-inbox"></i>
-                        </span>
-                    </div>
-                    <div class="text-box-function">
-                        <h3 class="title-box-function">Correspondencia</h3>
-                        <p class="content-box-function">Gestiona, codifica consecutivamente, digitaliza y distribuye toda la
-                            correspondencia que entra, sale
-                            y circula.
-                        </p>
-                    </div>
-                </div>
-            
-                <div class="box-function">
-                    <div class="ico-box-function">
-                        <span style="font-size: 4rem">
-                            <i class="fa-solid fa-truck"></i>
-                        </span>
-                    </div>
-                    <div class="text-box-function">
-                        <h3 class="title-box-function">Distribución y trazabilidad</h3>
-                        <p class="content-box-function">Gestiona sedes, mensajeros, rutas de distribución y entregas físicas y
-                            virtuales. Trazabilidad física y electrónica en tiempo real.
-                        </p>
-                    </div>
-                </div>
-    
-                <div class="box-function">
-                    <div class="ico-box-function">
-        
-                        <span style="font-size: 4rem">
-                            <i class="fa-regular fa-file-lines"></i>
-                        </span>
-        
-                    </div>
-                    <div class="text-box-function">
-                        <h3 class="title-box-function">Documentos Electrónicos
-                        </h3>
-                        <p class="content-box-function">Crea documentos electrónicos o importa desde Word, solicita aprobación
-                            en
-                            línea, firma de manera electrónica, biométrica y digital.
-                        </p>
-                    </div>
-                </div>
-   
-        
-            </section>
-            <!-- fin sección de los módulos -->
-        </main>
-
-
-        <div class="container-info-modulos">
-
-            <div class="text-info-modulos">
-                <p>Información de Módulos</p>
-            </div>
-
-            
-            
         </div>
 
-    </div>
-     
-    <div>
-        <!-- footer de la web -->
-    
-        <footer>
-            <div class="info-footer">
-                <p>Copyright © 2025  |  Todos los derechos reservados |  CERO K |  Política Tratamiento de Datos</p>
+        <div class="box-function">
+            <div class="ico-box-function">
+                <span style="font-size: 4rem">
+                    <i class="fa-solid fa-truck"></i>
+                </span>
             </div>
-    
-            <div class="redes">
-    
-                <span>
-                    <i class="fa-brands fa-instagram"></i>
-                </span>
-                <span>
-                    <i class="fa-brands fa-facebook"></i>
-                </span>
-                <span>
-                    <i class="fa-brands fa-youtube"></i> </span>
-                <span>
-                    <i class="fa-brands fa-square-x-twitter"></i>
-                </span>
-    
+            <div class="text-box-function">
+                <h3 class="title-box-function">Distribución y trazabilidad</h3>
+                <p class="content-box-function">Gestiona sedes, mensajeros, rutas de distribución y entregas físicas y
+                    virtuales. Trazabilidad física y electrónica en tiempo real.
+                </p>
             </div>
-        </footer>
-    
-    </div>
-    
+        </div>
 
+        <div class="box-function">
+            <div class="ico-box-function">
+
+                <span style="font-size: 4rem">
+                    <i class="fa-regular fa-file-lines"></i>
+                </span>
+
+            </div>
+            <div class="text-box-function">
+                <h3 class="title-box-function">Documentos Electrónicos
+                </h3>
+                <p class="content-box-function">Crea documentos electrónicos o importa desde Word, solicita aprobación
+                    en
+                    línea, firma de manera electrónica, biométrica y digital.
+                </p>
+            </div>
+        </div>
+
+
+    </section>
+
+    <div class="container-info-modulos">
+        <div class="text-info-modulos">
+            <p>Información de Módulos</p>
+        </div>
+    </div>
 </div>
 
+    <footer>
+        <div class="info-footer">
+            <p>Copyright © 2025 | Todos los derechos reservados | CERO K | Política Tratamiento de Datos</p>
+        </div>
+
+        <div class="redes">
+
+            <span>
+                <i class="fa-brands fa-instagram"></i>
+            </span>
+            <span>
+                <i class="fa-brands fa-facebook"></i>
+            </span>
+            <span>
+                <i class="fa-brands fa-youtube"></i> </span>
+            <span>
+                <i class="fa-brands fa-square-x-twitter"></i>
+            </span>
+
+        </div>
+    </footer>
 
 </body>
 
