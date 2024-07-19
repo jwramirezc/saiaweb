@@ -439,20 +439,26 @@ footer {
     width: 50rem;
     height: 20rem;
     border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .text-info-modulos p{
 font-size: var(--font-title-h3);
 color: var(--secondary-color);
-font-weight: bold;
+font-weight: 300;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.btn-info{
+    padding: 5px 10px;
+    margin: 15px 5px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
 }
-
 
 
 
