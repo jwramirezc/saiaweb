@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadrante de Personalidad</title>
+    <style>
+        :root {
+            --primary-color: #344F59;
+            --secondary-color: #825ef6;
+            --third-color: #42d3d8;
+            --background-color: #C9F1E8;
+            --border-color: #8DEDD7;
+            --color-selects: #16736B;
+            --font-title-h2: 2.5rem;
+            --font-title-h3: 1.5rem;
+            --font-text: 1.4rem;
+            --font-nav: 1.4rem;
+            --font-btn: 1.8rem;
+            --font-icon-btn: 2rem;
+            --background-box-color: rgba(132, 204, 252, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            font-size: 62.5%;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            /* background: linear-gradient(to bottom, rgb(242, 248, 255), white); */
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .explicacion-ejemplo {
+            max-width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .title-primary {
+            text-align: center;
+            font-size: var(--font-title-h2);
+            color: var(--secondary-color);
+        }
+
+        .parrafo-primary,
+        .parrafo-secondary {
+            display: flex;
+            flex-direction: column;
+            font-size: var(--font-title-h3);
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-left: 4rem;
+            margin-right: 4rem;
+        }
+
+        .parrafo-primary strong,
+        .parrafo-secondary strong {
+            color: var(--secondary-color);
+        }
+
+        .container-ejemplo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .dato-ejemplo {
+            color: white;
+            border: none;
+            background-color: #825ef6;
+            padding: 5px 20px 5px 20px;
+            margin: 10px;
+            border-radius: 15px;
+        }
+
+        .tablita {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+
+
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #F1F7F9;
+        }
+
+        th {
+            background-color: #F1F7F9;
+        }
+
+        .row-number {
+            background-color: #F1F7F9;
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: auto;
+        }
+
+        tfoot {
+            border: none;
+        }
+
+        .select-container,
+        .select-ejemplo {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .select-ejemplo {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .select-container select,
+        .dato-ejemplo {
+            justify-self: center;
+            color: var(--color-selects);
+            background-color: var(--background-color);
+            margin: 10px;
+            height: 40px;
+            width: 60px;
+            font-size: var(--font-title-h3);
+            padding: 8px 8px;
+            font-weight: 400;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        .select-container select:hover,
+        .dato-ejemplo:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .select-container select:focus,
+        .dato-ejemplo:focus {
+            outline: none;
+            /* Para eliminar el borde de enfoque predeterminado */
+            border-color: var(--focus-border-color);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .select-label,
+        .etiqueta-ejemplo {
+            color: #344F59;
+            margin-right: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .container-btn-calcular {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-calcular {
+            justify-self: center;
+            color: white;
+            background-color: #96B6C5;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            height: 40px;
+            width: 200px;
+            font-size: var(--font-title-h3);
+            padding: 8px 12px;
+            font-weight: 400;
+            line-height: 1.5;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        .btn-calcular:hover {
+            background-color: #ADC4CE;
+        }
+
+        #btn-reiniciar:hover {
+            background-color: #ADC4CE;
+        }
+
+        .title-resultado {
+            text-align: center;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .resultado1 {
+            color: white;
+            background-color: #D37676;
+            font-size: 1.8rem;
+            padding: 8px 12px;
+            font-weight: bold;
+            line-height: 1.5;
+            border: none;
+            text-align: center;
+            appearance: none;
+        }
+
+        .resultado2 {
+            color: white;
+            background-color: #F6995C;
+            font-size: 1.8rem;
+            padding: 8px 12px;
+            font-weight: bold;
+            line-height: 1.5;
+            border: none;
+            text-align: center;
+            appearance: none;
+        }
+
+        .resultado3 {
+            color: white;
+            background-color: #55AD9B;
+            font-size: 1.8rem;
+            padding: 8px 12px;
+            font-weight: bold;
+            line-height: 1.5;
+            border: none;
+            text-align: center;
+            appearance: none;
+        }
+
+        .resultado4 {
+            color: white;
+            background-color: #7BD3EA;
+            font-size: 1.8rem;
+            padding: 8px 12px;
+            font-weight: bold;
+            line-height: 1.5;
+            border: none;
+            text-align: center;
+            appearance: none;
+        }
+
+
+        .cuadrantes-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            flex-direction: row;
+        }
+
+        .fila-cuadrante {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 300px;
+            width: 20%;
+            margin-bottom: 20px;
+        }
+
+        .title-resumen-box1 {
+
+            background-color: #D37676;
+            border-bottom: 1px solid #ddd;
+            border-radius: 8px 8px 0 0;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .title-resumen-box2 {
+
+            background-color: #F6995C;
+            border-bottom: 1px solid #ddd;
+            border-radius: 8px 8px 0 0;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .title-resumen-box3 {
+
+            background-color: #55AD9B;
+            border-bottom: 1px solid #ddd;
+            border-radius: 8px 8px 0 0;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .title-resumen-box4 {
+
+            background-color: #7BD3EA;
+            border-bottom: 1px solid #ddd;
+            border-radius: 8px 8px 0 0;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+
+        .title-resumen {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .descripcion-cuadrante {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            /* color: var(--primary-color); */
+        }
+
+        .descripcion-cuadrante strong {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .descripcion-cuadrante p {
+            margin: 10px 0;
+        }
+
+        .btn-reiniciar-container {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        #btn-reiniciar {
+            justify-self: center;
+            color: white;
+            background-color: #96B6C5;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            height: 40px;
+            width: 150px;
+            font-size: var(--font-title-h3);
+            padding: 8px 12px;
+            font-weight: 400;
+            line-height: 1.5;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        /* El fondo oscuro de la ventana emergente */
+        .modal {
+            display: none;
+            /* Oculto por defecto */
+            position: fixed;
+            z-index: 1000;
+            /* Por encima de otros elementos */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Fondo semi-transparente */
+        }
+
+        /* Contenido de la ventana emergente */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* Centrado */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            /* Ancho de la ventana */
+            max-width: 600px;
+            /* Ancho máximo */
+            height: 120px;
+            border-radius: 10px;
+            /* Bordes redondeados */
+            text-align: center;
+            /* Texto centrado */
+            font-size: 1.5rem;
+            position: relative;
+            /* Asegura que el botón de cerrar esté posicionado correctamente */
+
+        }
+
+        /* Botón para cerrar la ventana */
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        /* Estilos para el contenedor del texto final */
+        .texto-final {
+            background-color: #f5f5f5;
+            /* Color de fondo sutil */
+            border-top: 2px solid var(--secondary-color);
+            ;
+            /* Línea superior para destacar */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            /* Ancho máximo del contenedor */
+            text-align: center;
+            /* Centrar texto */
+            border-radius: 8px;
+            /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Sombra sutil */
+        }
+
+        .texto-final p {
+            font-family: 'Arial', sans-serif;
+            /* Tipografía moderna */
+            font-size: 1.8rem;
+            /* Tamaño de fuente cómodo */
+            line-height: 1.6;
+            /* Espaciado entre líneas */
+            color: var(--primary-color);
+            /* Color de texto oscuro */
+            margin: 0;
+            /* Eliminar margen predeterminado */
+        }
+
+        .texto-final p br {
+            content: "\A";
+            /* Añadir espacio extra entre líneas */
+        }
+
+        .texto-final p::before {
+            content: '"';
+            /* Comillas al inicio del texto */
+            font-size: 3rem;
+            /* Tamaño grande para el estilo de comillas */
+            color: var(--secondary-color);
+            /* Color para las comillas */
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .texto-final p::after {
+            content: '"';
+            /* Comillas al final del texto */
+            font-size: 3rem;
+            /* Tamaño grande para el estilo de comillas */
+            color: var(--secondary-color);
+            /* Color para las comillas */
+            display: block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+
+
+            .container-ejemplo {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                align-content: center;
+            }
+
+            .row-number {
+                text-align: center;
+            }
+
+            th,
+            td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            tr {
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            th,
+            td {
+                border: none;
+                text-align: left;
+            }
+
+            th::before,
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                text-transform: uppercase;
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            td {
+                padding-left: 20px;
+                position: relative;
+            }
+
+            td::before {
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 20px;
+                padding-top: 8px;
+                background: var(--background-color);
+                color: white;
+                text-align: center;
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
+
+            .btn-calcular {
+                text-align: center;
+            }
+
+            .cuadrantes-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .fila-cuadrante {
+                display: flex;
+                flex-direction: column;
+
+                padding: 20px;
+                max-width: 400px;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .explicacion-ejemplo {
+                max-width: 100%;
+                margin: 5px;
+                padding: 2px;
+            }
+
+            .select-container,
+            .select-ejemplo {
+                flex-direction: column-reverse;
+
+            }
+
+            .parrafo-primary,
+            .parrafo-secondary {
+
+                text-align: center;
+            }
+    </style>
+
+</head>
+
+<header>
+    <h2 class="title-primary">TEST CUADRANTE DE PERSONALIDAD</h2>
+</header>
+
+<section class="explicacion-ejemplo">
+
+    <div class="parrafo-primary">
+        <p>El objetivo del test es ver la tendencia de tus comportamientos o maneras de ser más comunes o frecuentes en
+            ti. </br></br>Ninguno representa un juicio de valor como positivo o negativo. Para responder, vas a tener en
+            cuenta el comportamiento o manera de ser que sea más frecuente en ti la mayoría de las veces. Asegúrate de
+            no pensar mucho las respuestas. </p></br>
+        <p>Toma un tiempo de <strong>20 minutos</strong> para responder. Sé honesto contigo mismo. </p>
+    </div>
+
+    <div class="parrafo-primary">
+        <p>Califica cada fila en una escala de <strong>1</strong> a <strong>4</strong>. Siendo <strong>4</strong> la
+            palabra que mejor te describe y <strong>1</strong> la que menos te describe.</p></br>
+        <p>Asigna un valor a cada palabra <strong>sin repetir número</strong> en la misma fila.</p></br>
+        <p><strong>Ejemplo:</strong></p>
+    </div>
+
+    <div class="container-ejemplo">
+
+        <div class="select-ejemplo">
+            <p class="etiqueta-ejemplo">Persuasivo</p>
+            <p class="dato-ejemplo">4</p>
+        </div>
+        <div class="select-ejemplo">
+            <p class="etiqueta-ejemplo">Ruidoso</p>
+            <p class="dato-ejemplo">2</p>
+        </div>
+        <div class="select-ejemplo">
+            <p class="etiqueta-ejemplo">Apacible</p>
+            <p class="dato-ejemplo">1</p>
+        </div>
+        <div class="select-ejemplo">
+            <p class="etiqueta-ejemplo">Negociador</p>
+            <p class="dato-ejemplo">3</p>
+        </div>
+
+    </div>
+
+    <div class="parrafo-secondary">
+        <p><strong>¿Listo para descubrirte? Despliega la lista y elige una opción:</strong></p>
+    </div>
+
+</section>
+
+<body>
+
+    <div class="tablita">
+        <table id="tabla">
+            <thead>
+                <!-- <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr> -->
+            </thead>
+            <tbody>
+                <!-- Filas generadas por JavaScript -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <div class="container-btn-calcular"><button onclick="calcularSuma()"
+                                class="btn-calcular">Calcular Cuadrante</button></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="title-resultado">RESULTADO</td>
+                    <td class="resultado1">
+                        <p class="title-resultado">CONTROL</p> <span id="suma-col-1">0</span>
+                    </td>
+                    <td class="resultado2">
+                        <p class="title-resultado">PROMOTOR</p> <span id="suma-col-2">0</span>
+                    </td>
+                    <td class="resultado3">
+                        <p class="title-resultado">APOYO</p> <span id="suma-col-3">0</span>
+                    </td>
+                    <td class="resultado4">
+                        <p class="title-resultado">ANALÍTICO</p> <span id="suma-col-4">0</span>
+                    </td>
+                </tr>
+
+            </tfoot>
+        </table>
+
+        <div class="cuadrantes-container">
+
+            <div class="fila-cuadrante">
+                <div class="title-resumen-box1">
+                    <p class="title-resumen">Control</p>
+                </div>
+                <div class="descripcion-cuadrante">
+                    <strong>En centro:</strong> Directo, determinado, orientado a resultados, líder nato, auto-motivado,
+                    productivo, valiente, autosuficiente, dispuesto a confrontar, toma riesgos, enfocado a la acción,
+                    protector, ayuda a otros a lograr resultados.
+                    </p>
+                    <p></br><strong>Fuera de centro:</strong> No muestra sus emociones, parece insensible, rudo,
+                        arrogante, exigente, no considera las necesidades o sentimientos de otros, frío, avasallador,
+                        agresivo, cortante, imponente, dominante, manipulador.</p>
+                </div>
+            </div>
+
+            <div class="fila-cuadrante">
+                <div class="title-resumen-box2">
+                    <p class="title-resumen">Promotor</p>
+                </div>
+                <div class="descripcion-cuadrante">
+                    <strong>En centro:</strong> Entusiasta, divertido, expresivo, creativo, espontáneo y se expresan sin
+                    inhibición, interesantes, apasionados, empoderantes, ayudar a tomarse la vida más ligera y a
+                    disfrutarla, emprendedores, ingeniosos, emocionales, líderes natos, hábil para relacionarse,
+                    adaptable.
+                    </p>
+                    <p></br><strong>Fuera de centro:</strong> Falta de enfoque, superficiales, payasos, dramáticos,
+                        llaman la atención, no se fijan en los detalles, acelerado, egoísta, impulsivo, le cuesta
+                        obtener resultados, hogareños, orientado a las personas.</p>
+                </div>
+            </div>
+            <div class="fila-cuadrante">
+                <div class="title-resumen-box3">
+                    <p class="title-resumen">Apoyo</p>
+                </div>
+                <div class="descripcion-cuadrante">
+                    <strong>En centro:</strong> Dador, paciente, sensible, amable, cooperativo, excelente oyente, le
+                    importa genuinamente las personas, muy humanos, servicial, apoyador, ayudan a los demás, trabaja
+                    bien en equipo, suave, tranquilo, pausado. tolerante.
+                    </p>
+                    <p></br><strong>Fuera de centro:</strong> Se muestra débil, indeciso, sofocante, se toma las cosas
+                        personales, puede ser víctima (no puedo, no es para mí, no soy capaz etc) fácil de engañar, solo
+                        ve lo bueno en otros, evita el conflicto, sumiso, se deja pasar por encima, no se prioriza, se
+                        enferman con frecuencia.</p>
+                </div>
+            </div>
+            <div class="fila-cuadrante">
+                <div class="title-resumen-box4">
+                    <p class="title-resumen">Analítico</p>
+                </div>
+                <div class="descripcion-cuadrante">
+                    <strong>En centro:</strong> Consciente, detallado, preparado, metódico, trabaja con responsabilidad
+                    y a conciencia, persistente, confiable, excelente para resolver problemas, enfocado, organizado,
+                    dedicado, alto nivel de integridad, profundos en sus sentimientos, noble, no le gusta el
+                    protagonismo.
+                    </p>
+                    <p></br><strong>Fuera de centro:</strong> Se muestra apático, pre juicioso, quiere tener la razón,
+                        terco, inflexible, aburrido, reprimido, parece tímido, evita expresar lo que siente y piensa,
+                        protocolario, de demora en obtener resultados debido al exceso de planificación o de buscar
+                        información que respalde sus decisiones.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="btn-reiniciar-container">
+            <button id="btn-reiniciar">Reiniciar Test</button>
+        </div> -->
+
+
+        <div class="texto-final">
+
+            <p>Ahora que sabes tu cuadrante, es momento de ir al siguiente nivel.
+                Descubre cómo se relaciona en pareja, en el trabajo, en los proyectos cada </br></br>
+                cuadrante y cómo se construyó esa personalidad y más.</br></br>
+                ¡Toma el taller ahora mismo!</p>
+
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <p>🫣 No puedes repetir el número de calificación en la misma fila. </br>
+                    </br>😃 Elige otra calificación o modifícalas para que no se repitan.</p>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+
+        // Obtener la ventana modal y el botón de cerrar
+        const modal = document.getElementById('modal');
+        const closeBtn = document.querySelector('.close-btn');
+
+        // Función para mostrar la ventana emergente
+        function showModal() {
+            modal.style.display = 'block';
+        }
+
+        // Función para ocultar la ventana emergente
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Cerrar la ventana cuando se hace clic en el botón de cerrar
+        closeBtn.onclick = function () {
+            closeModal();
+        }
+
+        // Cerrar la ventana cuando se hace clic fuera del contenido
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+
+
+        const etiquetasColumna1 = [
+            'Diligente', 'Decidido', 'Terco', 'Independiente', 'Retador', 'Arriesgado', 'Valiente', 'Confiable',
+            'Sin miedo', 'Persistente', 'Asertivo', 'Toma el mando', 'Agresivo', 'Directo', 'Franco', 'Presionador',
+            'Frío', 'Contundente', 'Concreto', 'Realista'
+        ];
+
+        const etiquetasColumna2 = [
+            'Entusiasta', 'Expresivo', 'Convincente', 'Divertido', 'Sociable', 'Dinámico', 'Alta Energía', 'Inspirador',
+            'Compatible', 'Hablador', 'Popular', 'Deshinibido', 'Vibrante', 'Emocionante', 'Influyente', 'Emocional',
+            'Animado', 'Creativo', 'Soñador', 'Positivo'
+        ];
+
+        const etiquetasColumna3 = [
+            'Paciente', 'Permisivo', 'Amable', 'Leal', 'Comprensivo', 'Caritativo', 'Compasivo', 'Apoya a otros',
+            'Prioriza a otros', 'Callado', 'Tranquilo', 'Buen oyente', 'Cooperativo', 'Servicial', 'Flexible',
+            'Adaptable', 'Apacible', 'Compatible', 'Tolerante', 'Dador'
+        ];
+
+        const etiquetasColumna4 = [
+            'Detallado', 'Cuidadoso', 'Meticuloso', 'Obediente', 'Altos valores', 'Rigido', 'Serio', 'Preciso',
+            'Lógico', 'Cauteloso', 'Analítico', 'Organizado', 'Atención al detalle', 'Estratega', 'Táctico', 'Exacto',
+            'Enfocado', 'Sistemático', 'Pensador', 'Persistente'
+        ];
+
+        // Generar tabla con inputs
+        const tbody = document.querySelector('#tabla tbody');
+        for (let i = 0; i < 20; i++) {
+            const row = document.createElement('tr');
+            const rowNumberCell = document.createElement('td');
+            rowNumberCell.className = 'row-number';
+            rowNumberCell.textContent = i + 1;
+            row.appendChild(rowNumberCell);
+
+            for (let j = 0; j < 4; j++) {
+                const cell = document.createElement('td');
+                const selectContainer = document.createElement('div');
+                selectContainer.className = 'select-container';
+                const select = document.createElement('select');
+                select.className = 'fila' + i;
+                select.innerHTML = `
+                    <option value="">Elige</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                `;
+                select.addEventListener('change', validarFila);
+                selectContainer.appendChild(select);
+
+                // Agregar etiqueta
+                const label = document.createElement('span');
+                label.className = 'select-label';
+                if (j === 0) {
+                    label.textContent = etiquetasColumna1[i];
+                } else if (j === 1) {
+                    label.textContent = etiquetasColumna2[i];
+                } else if (j === 2) {
+                    label.textContent = etiquetasColumna3[i];
+                } else if (j === 3) {
+                    label.textContent = etiquetasColumna4[i];
+                }
+                selectContainer.insertBefore(label, select); // Inserta la etiqueta antes del select
+
+                cell.appendChild(selectContainer);
+                row.appendChild(cell);
+            }
+            tbody.appendChild(row);
+        }
+
+        function validarFila() {
+            const fila = this.className;
+            const selects = document.querySelectorAll('select.' + fila);
+            const valores = [];
+
+            // Reemplazar la alerta con la ventana emergente en el bucle
+            for (const select of selects) {
+                if (select.value && valores.includes(select.value)) {
+                    showModal();
+                    select.value = '';
+                    return;
+                }
+                if (select.value) {
+                    valores.push(select.value);
+                }
+            }
+        }
+
+        function calcularSuma() {
+            const sumaCol1 = document.getElementById('suma-col-1');
+            const sumaCol2 = document.getElementById('suma-col-2');
+            const sumaCol3 = document.getElementById('suma-col-3');
+            const sumaCol4 = document.getElementById('suma-col-4');
+
+            sumaCol1.textContent = 0;
+            sumaCol2.textContent = 0;
+            sumaCol3.textContent = 0;
+            sumaCol4.textContent = 0;
+
+            for (let i = 0; i < 20; i++) {
+                const selects = document.querySelectorAll('select.fila' + i);
+                for (let j = 0; j < 4; j++) {
+                    const value = parseInt(selects[j].value);
+                    if (!isNaN(value)) {
+                        if (j === 0) sumaCol1.textContent = parseInt(sumaCol1.textContent) + value;
+                        if (j === 1) sumaCol2.textContent = parseInt(sumaCol2.textContent) + value;
+                        if (j === 2) sumaCol3.textContent = parseInt(sumaCol3.textContent) + value;
+                        if (j === 3) sumaCol4.textContent = parseInt(sumaCol4.textContent) + value;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Cuadrante de Personalidad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/61a9bf8976.js" crossorigin="anonymous"></script>
+
+    <style>
+    
+    :root {
+    --primary-color: #333333;
+    --secondary-color: #825ef6;
+    --third-color: #42d3d8;
+    --hover-color: #2ba1a5;
+    --font-title-h2: 2.5rem;
+    --font-title-h3: 1.5rem;
+    --font-text: 1.4rem;
+    --font-nav: 1.4rem;
+    --font-btn: 1.8rem;
+    --font-icon-btn: 2rem;
+    --background-box-color:rgba(132, 204, 252, 0.2);
+    }
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    html {
+        font-size: 62.5%;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        /* background: linear-gradient(to bottom, rgb(242, 248, 255), white); */
+    }
+
+    header{
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    .title-primary{
+        font-size: var(--font-title-h2);
+        color: var(--secondary-color);
+    }
+
+    .parrafo-primary{
+        display: flex;
+        flex-direction: column;
+        font-size: var(--font-title-h3);
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-left: 4rem;        
+        margin-right: 4rem;   
+    }
+
+    .total-select-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 4rem;
+    }
+
+    .total-select-container-ppal, .resultados{
+        display: grid;
+        align-items: center;
+        grid-template-columns: 20px repeat(4, 1fr);
+        margin: 4rem;
+    }
+
+    .numeracion{
+        font-size: var(--font-title-h3);
+        font-weight: bold;
+    }
+
+    .parrafo-secondary{
+        font-size: var(--font-title-h3);
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-left: 4rem;
+        margin-right: 4rem;  
+    }
+
+    .etiqueta-select{
+        font-size: var(--font-title-h3);
+        color: var(--primary-color);
+    }
+
+    .etiqueta-select-resultados{
+        font-size: var(--font-text);
+        font-weight: bold;
+        
+    }
+
+    .etiqueta-valor-resultados{
+        font-size: var(--font-title-h3);
+        font-weight: bold;
+        padding: 10px;
+        margin-left: 20px;
+        background-color: #42d3d8;
+        color: var(--primary-color);
+        border-radius: 10px;
+    }
+
+
+    #opciones{
+        color: white;
+        border: none;
+        background-color: #825ef6;
+        padding: 5px 20px 5px 20px;
+        margin: 10px;
+        border-radius: 15px;
+    }
+
+    .select-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .select-container select {
+            height: 40px;
+            width: 50px;
+            padding: 8px 12px;
+            font-weight: 400;
+            line-height: 1.5;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            appearance: none;
+    }
+    .select-container-ppal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .select-container-ppal select {
+            height: 40px;
+            width: 50px;
+            padding: 8px 12px;
+            font-weight: 400;
+            line-height: 1.5;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            appearance: none;
+    }
+
+
+    @media (max-width: 768px) {
+
+    .select-container, .select-container-ppal {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .etiqueta-select{
+        margin: 5px;
+    }
+
+    header{
+        display: flex;
+        margin-left: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+
+  
+    }
+    </style>
+
+</head>
+
+
+<body>
+
+<header>
+    <h2 class="title-primary">TEST CUADRANTE DE PERSONALIDAD</h2>
+</header>
+
+<section class="explicacion-ejemplo">
+
+    <div class="parrafo-primary">
+        <p>El objetivo del test es ver la tendencia de tus comportamientos o maneras de ser más comunes o frecuentes en ti. Ninguno representa un juicio de valor como positivo o negativo. Para responder, vas a tener en cuenta el comportamiento o manera de ser que sea más frecuente en ti la mayoría de las veces. Asegúrate de no pensar mucho las respuestas. </p></br>
+        <p>Toma un tiempo de <strong>20 minutos</strong> para responder. Sé honesto contigo mismo. </p>
+    </div>    
+
+    <div class="parrafo-primary">
+        <p>Califica cada fila en una escala de <strong>1</strong> a <strong>4</strong>. Siendo <strong>4</strong> la palabra que mejor te describe y <strong>1</strong> la que menos te describe.</p></br>
+        <p>Asigna un valor a cada palabra sin repetir número.</p></br>
+        <p><strong>Ejemplo:</strong></p>
+    </div>  
+    
+    <div class="total-select-container">
+
+        <div class="select-container">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="parrafo-secondary"><p><strong>¿Listo para descubrirte? Despliega la lista y elige una opción.</strong></p></div>
+
+</section>
+
+
+<section>
+
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">1</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">2</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">3</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">4</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">5</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">6</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">7</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">8</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">9</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">10</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">11</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">12</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">13</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">14</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">15</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">16</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">17</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">18</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">19</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">20</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Persuasivo</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Ruidoso</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Apacible</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+        <div class="select-container-ppal">
+            <label for="opciones" class="etiqueta-select">Negociador</label>
+            <select id="opciones" name="opciones">
+                <option value="opcion1">1</option>
+                <option value="opcion2">2</option>
+                <option value="opcion3">3</option>
+                <option value="opcion4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="total-select-container-ppal">
+
+        <div>
+            <p class="numeracion">Total</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <p class="etiqueta-select-resultados">CONTROL</p>
+            <p class="etiqueta-valor-resultados">100</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <p class="etiqueta-select-resultados">PROMOTOR</p>
+            <p class="etiqueta-valor-resultados">100</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <p class="etiqueta-select-resultados">APOYO</p>
+            <p class="etiqueta-valor-resultados">100</p>
+        </div>
+
+        <div class="select-container-ppal">
+            <p class="etiqueta-select-resultados">ANALÍTICO</p>
+            <p class="etiqueta-valor-resultados">100</p>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <div class="resultados">
+
+
+
+    </div>
+
+
+</section>
+    
+
+    <footer>
+    </footer>
+    
+
+
+<script src="sumas.js"></script>
+
+
+</body>
+
+</html>
